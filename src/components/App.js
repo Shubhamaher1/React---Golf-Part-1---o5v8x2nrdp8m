@@ -1,6 +1,6 @@
 import React, { Component, useEffect, useState } from "react";
 import '../styles/App.css';
-import React from 'react'
+// import React from 'react'
 
 export const App = () => {
     const[renderBall,setRenderBall]=useState(false);
@@ -34,4 +34,4 @@ export const App = () => {
 }
 
 
-export default App;
+// export default App;
