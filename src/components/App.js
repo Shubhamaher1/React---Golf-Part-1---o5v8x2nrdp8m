@@ -7,10 +7,14 @@ export const App = () => {
     const[position , setPosition]=useState(0);
     const[ballPosition,setBallPosition]=useState({left:"0px"});
     function buttonClickHandler() {
-        setRenderBall(true)
+        setRenderBall(true);
    
     }
-  
+  function updateBall(event){
+    if(event.key==="ArrowRight"){
+        setBallPosition(prev=>({left:prev.left+5}))
+    }
+  }
     function  renderBallOrButton() {
 		if (renderBall) {
 		    return <div className="ball" style={{position:"absolute",left:ballPosition.left}}></div>
@@ -19,11 +23,7 @@ export const App = () => {
 		}
     }
     useEffect(()=>{
-        document.addEventListener("keydown",(e)=>{
-           if(e.key==="ArrowRight"){
-               setBallPosition({left:ballPosition.left+5})
-           }
-        })
+        document.addEventListener("keydown",updateBall)
 
     },[])
   return (
